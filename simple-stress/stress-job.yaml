@@ -1,0 +1,15 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: stress-job
+spec:
+  template:
+    metadata: 
+      name: stress-job
+    spec:
+      containers:
+      - image: jp/stresik:latest
+        imagePullPolicy: IfNotPresent
+        name: stresik
+      restartPolicy: OnFailure
+
